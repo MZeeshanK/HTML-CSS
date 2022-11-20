@@ -14,7 +14,7 @@ body {
 
 main {
   max-width: 1500px;
-  width: 90%;
+  width: 95%;
   margin: auto;
 }
 
@@ -28,36 +28,95 @@ h1 {
 
 h3 {
   font-size: 2rem;
+  text-transform: capitalize;
 }
 
 #projects {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 5rem 3rem;
   /* align-items: center;
   justify-content: center; */
 }
 
 .project-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
   background: rgba(255, 255, 255, 0.3);
-  padding: 1rem 1.4rem;
-  box-shadow: 0.1rem 0.2rem 0.4rem 0.1rem #000;
-  border-radius: 10px;
-  max-width: fit-content;
-  transition: 0.5s ease-in-out;
+  padding: 1rem;
+  min-width: fit-content;
+  aspect-ratio: 2;
+  transition: 0.25s ease-in-out;
+  transform: scale(0.95);
+}
+
+.project-container:nth-child(even) {
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .project-container:hover {
-  transform: translateY(-10px);
+  transform: scale(1);
 }
 
 .project-container a {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   text-decoration: none;
   font-size: 2rem;
-  color: rgb(108, 16, 151);
   font-weight: bold;
+}
+
+.project-container a i {
+  color: rgb(108, 16, 151);
+}
+
+@media only screen and (max-width: 1300px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 968px) {
+  h3 {
+    font-size: 1.2rem;
+  }
+  i {
+    font-size: 1.3rem;
+  }
+  #projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .project-container:nth-child(4n + 1) {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  .project-container:nth-child(4n + 2) {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  h3,
+  i {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  #projects {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .project-container:nth-child(4n + 1),
+  .project-container:nth-child(4n + 2),
+  .project-container:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  .project-container:nth-child(even) {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  h3,
+  i {
+    font-size: 1rem;
+  }
 }
