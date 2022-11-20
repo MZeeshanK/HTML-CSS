@@ -5,12 +5,14 @@ const fetchProjects = async () => {
     `https://api.github.com/repos/MZeeshanK/HTML-CSS/contents/projects`,
     {
       headers: {
-        Authorization: 'token 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',
+        Authorization: 'token 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',
       },
     }
   );
 
   const response = await res.json();
+
+  console.log(response);
 
   response.map((res) => {
     const project = document.createElement('div');
