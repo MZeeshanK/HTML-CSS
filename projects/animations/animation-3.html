@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation_3 || MZeeshanK</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        height: 100vh;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        background: #d7d4d6;
+      }
+
+      .circular {
+        height: 300px;
+        width: 300px;
+        position: relative;
+      }
+
+      .circular .inner {
+        position: absolute;
+
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        height: 240px;
+        width: 240px;
+        margin: -120px 0 0 -120px;
+        background: #288;
+        border-radius: 100%;
+      }
+
+      .circular .number {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 8;
+        font-size: 54px;
+        font-weight: 500;
+        color: orange;
+      }
+
+      .circular .bar {
+        position: absolute;
+
+        height: 100%;
+        width: 100%;
+        background-color: orange;
+        border-radius: 100%;
+        clip: rect(0, 300px, 300px, 150px);
+      }
+
+      .circular .bar .progress {
+        border-radius: 100%;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        clip: rect(0px, 150px, 300px, 0px);
+        background: #fff;
+      }
+
+      .circle .left .progress {
+        z-index: 1;
+        animation: left 30s linear both;
+      }
+
+      .circle .right {
+        transform: rotate(180deg);
+        z-index: 1;
+      }
+
+      @keyframes left {
+        100% {
+          transform: rotate(180deg);
+        }
+      }
+
+      .circle .right .progress {
+        animation: right 30s linear both;
+        animation-delay: 30s;
+      }
+
+      @keyframes right {
+        100% {
+          transform: rotate(180deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="circular">
+      <div class="inner"></div>
+      <div class="number">60</div>
+      <div class="circle">
+        <div class="bar left">
+          <div class="progress"></div>
+        </div>
+        <div class="bar right">
+          <div class="progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const timer = document.querySelector(".number");
+
+      let timeLeft = timer.textContent;
+      let countDown = setInterval(() => {
+        if (timeLeft == 0) {
+          clearInterval(countDown);
+        }
+        timeLeft -= 1;
+        if (timeLeft == -1) {
+          return;
+        } else {
+          timer.textContent = timeLeft;
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

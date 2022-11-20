@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation_2 || MZeeshanK</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      padding: 0%;
+      margin: 0%;
+    }
+    .container{
+      background: #65c6ac;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .box{
+      background: #7cc1ef;
+      height: 450px;
+      width: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #00f;
+      border: #00f 5px solid;
+      border-radius: 10px;
+      animation: cycle 3s infinite;
+    }
+
+    @keyframes cycle{
+      0%{
+      }
+      100%{
+        transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box"><h1>Hello World!</h1></div>
+  </div>
+</body>
+</html>

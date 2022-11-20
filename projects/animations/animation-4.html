@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animatio_4 || MZeeshanK</title>
+    <style>
+      * {
+        padding: 0%;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #111;
+        overflow: hidden;
+      }
+
+      .circle {
+        border-radius: 50%;
+      }
+
+      .sun {
+        height: 150px;
+        width: 150px;
+        background: radial-gradient(yellow, orange, red);
+      }
+
+      .earth {
+        height: 100px;
+        width: 100px;
+        background: linear-gradient(90deg, green, blue);
+        position: absolute;
+        animation: orbit 10s linear infinite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .moon {
+        position: absolute;
+        height: 25px;
+        width: 25px;
+        background: linear-gradient(90deg, #aaa, #555);
+        animation: moonOrbit 4s linear infinite;
+      }
+
+      @keyframes orbit {
+        from {
+          transform: rotate(0deg) translateX(220px) rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg) translateX(220px) rotate(1080deg);
+        }
+      }
+
+      @keyframes moonOrbit {
+        from {
+          transform: rotate(0) translateX(100px) rotate(0deg);
+        }
+        to {
+          transform: rotate(720deg) translateX(100px) rotate(-360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="circle earth">
+        <div class="circle moon"></div>
+      </div>
+      <div class="circle sun"></div>
+    </div>
+  </body>
+</html>

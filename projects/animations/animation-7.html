@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation_7 || MZeeshanK</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0%;
+        box-sizing: border-box;
+      }
+      body {
+        background: cyan;
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .inner-circle-1 {
+        --x: var(--radius);
+        --y: 0;
+      }
+      .inner-circle-2 {
+        --x: calc(var(--radius) * -1);
+        --y: 0;
+      }
+      .inner-circle-3 {
+        --x: calc(var(--radius) / 2);
+        --y: calc(var(--radius) * 0.866025);
+      }
+      .inner-circle-4 {
+        --x: calc(var(--radius) / -2);
+        --y: calc(var(--radius) * 0.866025);
+      }
+      .inner-circle-5 {
+        --x: calc(var(--radius) / -2);
+        --y: calc(var(--radius) * -0.866025);
+      }
+      .inner-circle-6 {
+        --x: calc(var(--radius) / 2);
+        --y: calc(var(--radius) * -0.866025);
+      }
+      .inner-circle {
+        --radius: 8rem;
+        height: 2rem;
+        background: linear-gradient(indigo, orange);
+        aspect-ratio: 1;
+        border-radius: 100%;
+        position: absolute;
+        animation: orbit 4s linear infinite;
+      }
+      @keyframes orbit {
+        0% {
+          transform: rotate(0deg) translate(var(--x), var(--y));
+        }
+        50% {
+          transform: rotate(360deg) translate(calc(var(--x) * 1.5), var(--y));
+        }
+        100% {
+          transform: rotate(720deg) translate(var(--x), var(--y));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="inner-circle inner-circle-1"></div>
+    <div class="inner-circle inner-circle-2"></div>
+    <div class="inner-circle inner-circle-3"></div>
+    <div class="inner-circle inner-circle-4"></div>
+    <div class="inner-circle inner-circle-5"></div>
+    <div class="inner-circle inner-circle-6"></div>
+  </body>
+</html>

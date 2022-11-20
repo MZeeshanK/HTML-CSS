@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation_5 || MZeeshanK</title>
+    <style>
+      * {
+        padding: 0%;
+        margin: 0%;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        background: #111;
+        overflow: hidden;
+      }
+      .circle {
+        background-color: transparent;
+        width: 110px;
+        height: 110px;
+        position: absolute;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+      }
+      .shadow {
+        background-color: transparent;
+        box-shadow: 5px 0 10px 5px #4a350d, 0 0 10px 5px #dbba7c,
+          inset -5px 0 10px 2px #4a350d, inset 0 0 10px 5px #dbba7c;
+        animation: shadow 1s linear infinite, scale 0.5s linear 9.5s forwards;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: inherit;
+        width: inherit;
+        border-radius: 50%;
+      }
+      .hole {
+        cursor: none;
+        background: #000;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        animation: size 5s linear forwards;
+      }
+      .circle:nth-child(1) {
+        animation: orbit 5s linear forwards;
+      }
+      .circle:nth-child(2) {
+        animation: reverseOrbit 5s linear forwards;
+      }
+      .star {
+        height: 150px;
+        width: 150px;
+        background: radial-gradient(yellow, orange, red);
+        border-radius: 50%;
+        box-shadow: 0 0 5px 3px orange;
+        animation: gravity 10s linear 5s forwards;
+        opacity: 0;
+        clip: circle(0, 0, 180px, 0);
+        position: absolute;
+      }
+      .atom {
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
+        background: orange;
+        position: absolute;
+        opacity: 0;
+        animation: singularity 2.5s linear 7.5s forwards;
+      }
+      @keyframes scale {
+        100% {
+          box-shadow: 5px 0 20px 15px #785d2a, 0 0 20px 15px #f1d7a5,
+            inset -5px 0 10px 2px #755a29, inset 0 0 10px 5px #f4d69e;
+        }
+      }
+      @keyframes singularity {
+        0% {
+          opacity: 1;
+          transform: rotate(0deg) translateX(250px);
+        }
+        50% {
+          opacity: 1;
+          transform: rotate(360deg) translateX(110px);
+        }
+        100% {
+          transform: rotate(360deg) translateX(110px);
+          opacity: 0;
+        }
+      }
+      @keyframes gravity {
+        0% {
+          opacity: 1;
+          transform: rotate(0deg) translate(500px);
+        }
+        25% {
+          opacity: 1;
+          transform: rotate(360deg) translate(250px);
+        }
+        100% {
+          opacity: 0;
+          transform: rotate(360deg) translate(250px);
+        }
+      }
+      @keyframes shadow {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes orbit {
+        0% {
+          transform: rotate(0deg) translateX(-400px);
+        }
+        80% {
+          transform: rotate(1080deg) translateX(-60px);
+          width: 110px;
+          height: 110px;
+        }
+        100% {
+          transform: rotate(3600deg) translateX(0);
+          width: 220px;
+          height: 220px;
+        }
+      }
+      @keyframes reverseOrbit {
+        0% {
+          transform: rotate(0deg) translateX(400px);
+        }
+        80% {
+          transform: rotate(1080deg) translateX(60px);
+          width: 110px;
+          height: 110px;
+        }
+        100% {
+          transform: rotate(3600deg) translateX(0);
+          width: 220px;
+          height: 220px;
+        }
+      }
+      @keyframes size {
+        80% {
+          width: 80px;
+          height: 80px;
+        }
+        100% {
+          height: 160px;
+          width: 160px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="circle">
+      <div class="shadow">
+        <div class="hole"></div>
+      </div>
+    </div>
+    <div class="circle">
+      <div class="shadow">
+        <div class="hole"></div>
+      </div>
+    </div>
+    <div class="star"></div>
+
+    <script>
+      const circle = document.querySelector('.circle');
+      for (let x = 0; x < 100; x++) {
+        const atom = document.createElement('div');
+        atom.classList = `atom atom-${x}`;
+        circle.appendChild(atom);
+      }
+      const atoms = document.querySelectorAll('.atom');
+      atoms.forEach((atom) => {
+        y = atom.classList.toString();
+        y = y.substring(10, y.length);
+        atom.style = `animation-delay:${7.5 + y * 0.05}s`;
+      });
+    </script>
+  </body>
+</html>

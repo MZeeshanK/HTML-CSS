@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation_6 || MZeeshanK</title>
+    <style>
+      body {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        overflow: hidden;
+        background-color: hsl(200 50% 5%);
+      }
+      .button-effect {
+        display: inline-grid;
+        place-items: center;
+        position: relative;
+        appearance: none;
+        cursor: pointer;
+        /* font-size: 3rem; */
+        isolation: isolate;
+        padding: 1em 2em;
+        background-color: transparent;
+        color: hsl(200 100% 65%);
+        border: 1px solid currentColor;
+        border-radius: 0.125em;
+        overflow: hidden;
+      }
+      .button-effect:before {
+        content: "";
+        width: 150%;
+        position: absolute;
+        z-index: -1;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        background-color: currentColor;
+        opacity: 0.25;
+        top: var(--y);
+        left: var(--x);
+        transform: translate(-50%, -50%) scale(0);
+      }
+
+      .ripple::before {
+        animation: ripple 0.5s;
+      }
+
+      @keyframes ripple {
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="button-effect">Retry</button>
+    <script>
+      const button = document.querySelector(".button-effect");
+      button.addEventListener("mousedown", (e) => {
+        posCustom(e, button);
+        button.classList.add("ripple");
+        button.addEventListener("animationend", () => {
+          button.classList.remove("ripple");
+        });
+      });
+
+      function posCustom(event, element) {
+        let posX = event.offsetX,
+          posY = event.offsetY;
+
+        element.style.setProperty(`--x`, `${posX}px`);
+        element.style.setProperty(`--y`, `${posY}px`);
+      }
+    </script>
+  </body>
+</html>

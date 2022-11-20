@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <title>Post | Edge Ledger</title>
+</head>
+
+<body id="home">
+    <header class="hero blog">
+        <div id="navbar" class="navbar top">
+            <h1 class="logo">
+                <span class="text-primary"><i class="fas fa-book-open"></i> Egde</span> Ledger
+            </h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#cases">Cases</a></li>
+                    <li><a href="index.html#blog">Blog</a></li>
+                    <li><a href="index.html#team">Team</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content">
+            <h1>Blog</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="post">
+            <h2>Blog Post One</h2>
+            <p class="meta">
+                <i class="fas fa-user"></i> Posted by
+                <strong>John Doe</strong> | March 08 2021
+            </p>
+            <img src="img/blog/blog1.jpg" alt="">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus atque culpa eveniet porro. Consequuntur quaerat, facilis, ad labore ipsam molestias at commodi qui repellat ipsum placeat mollitia unde repellendus sit!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum saepe maxime unde ea ratione, tempora in quis temporibus maiores illo omnis eos dicta? Dicta voluptatem esse laborum eum. Sunt odit nihil magnam amet earum, laboriosam iste, distinctio
+                dolor aliquam voluptatum possimus. Nostrum doloremque quidem similique quia id exercitationem eius consequatur dolore, nisi incidunt architecto, maiores, commodi numquam quisquam sunt saepe.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore commodi aliquid fuga distinctio inventore esse accusamus voluptatum aut nihil accusantium, ullam suscipit nam, est porro amet corporis dolor aliquam? Pariatur voluptas voluptatum,
+                laborum illum soluta sapiente similique adipisci eligendi praesentium voluptate deserunt dignissimos sunt vel, tenetur animi quo repellat aliquid.</p>
+        </section>
+    </main>
+    <!-- footer -->
+    <footer class="footer bg-dark">
+        <div class="social">
+            <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+            <a href="#"><i class="fab fa-youtube fa-2x"></i></a>
+            <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+        </div>
+        <p>Copyright &copy; 2021, All Rights Reserved </p>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        let scrolled = false;
+
+        window.onscroll = function() {
+            if (window.pageYOffset > 100) {
+                navbar.classList.remove('top');
+                if (!scrolled) {
+                    navbar.style.transform = 'translateY(-70px)'
+                }
+                setTimeout(function() {
+                    navbar.style.transform = 'translateY(0)'
+                    scrolled = true;
+                }, 200);
+            } else {
+                navbar.classList.add('top');
+                scrolled = false;
+            }
+        }
+    </script>
+</body>
+
+</html>

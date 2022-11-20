@@ -1,0 +1,63 @@
+* {
+  padding: 0%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('./images/background.png');
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.3);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+  max-width: 1500px;
+  width: 90%;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 2rem 3rem;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+#projects {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3rem;
+  /* align-items: center;
+  justify-content: center; */
+}
+
+.project-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 1rem 1.4rem;
+  box-shadow: 0.1rem 0.2rem 0.4rem 0.1rem #000;
+  border-radius: 10px;
+  max-width: fit-content;
+  transition: 0.5s ease-in-out;
+}
+
+.project-container:hover {
+  transform: translateY(-10px);
+}
+
+.project-container a {
+  text-decoration: none;
+  font-size: 2rem;
+  color: rgb(108, 16, 151);
+  font-weight: bold;
+}

@@ -1,0 +1,134 @@
+:root {
+    --color-dark: #333;
+    --color-light: #f4f4f4;
+    --page-1-color: steelblue;
+    --page-2-color: tan;
+    --page-3-color: teal;
+    --page-4-color: slateblue;
+    --animate-speed: 0.5s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #fff;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+i {
+    margin-left: 5px;
+}
+
+.btn {
+    padding: 10px 15px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 150px;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-dark {
+    background: var(--color-dark);
+    color: #fff;
+}
+
+.btn-dark:hover {
+    background-color: #666;
+    transform: scale(1.1);
+}
+
+.btn-light {
+    background: var(--color-light);
+    color: #333;
+}
+
+.btn-light:hover {
+    background-color: #aaa;
+    transform: scale(1.1);
+}
+
+.div {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+
+/* Page color */
+
+#page-1 {
+    background: var(--page-1-color);
+}
+
+#page-2 {
+    background: var(--page-2-color);
+}
+
+#page-3 {
+    background: var(--page-3-color);
+}
+
+#page-4 {
+    background: var(--page-4-color);
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0 20px;
+}
+
+.page h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+    margin: 1rem;
+}
+
+.page>* {
+    padding-bottom: 20px;
+}
+
+
+/* Page Animation */
+
+#page-1 h1 {
+    animation: heading var(--animate-speed) forwards ease-in-out;
+}
+
+#page-1 p {
+    transform: translateX(-1920px);
+    animation: parah var(--animate-speed) forwards ease-in-out 0.5s;
+}
+
+
+/* Key frames */
+
+@keyframes heading {
+    from {
+        transform: translateY(-1200px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes parah {
+    to {
+        transform: translateX(0px);
+    }
+}
