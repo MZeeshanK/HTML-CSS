@@ -5,7 +5,7 @@ const fetchProjects = async () => {
     `https://api.github.com/repos/MZeeshanK/HTML-CSS/contents/projects`,
     {
       headers: {
-        Authorization: 'token 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',
+        Authorization: 'token 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',
       },
     }
   );
